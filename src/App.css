@@ -149,6 +149,11 @@ main {
   header h1 {
     font-size: 1.3em;
   }
+
+  main {
+    height: 500px;
+  }
+
   .register-note {
     width: 90%;
   }
