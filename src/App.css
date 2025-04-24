@@ -53,6 +53,10 @@ main {
 .main-note {
   flex-direction: column;
   gap: 30px;
+
+  & h2, h3, p {
+    word-wrap: break-word;
+  }
 }
 
 .main-create {
@@ -83,6 +87,21 @@ main {
   cursor: pointer;
   box-shadow: 10px 8px 20px rgba(0, 0, 0, 0.495);
   transition: all 0.3s;
+  font-size: 0.75em;
+  word-wrap: break-word;
+  overflow-y: auto;
+}
+
+.card::-webkit-scrollbar {
+  background-color: transparent;
+}
+
+.card::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.card::-webkit-scrollbar-thumb {
+  background-color: transparent;
 }
 
 .card:hover {
