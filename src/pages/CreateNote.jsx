@@ -41,7 +41,7 @@ function CreateNote() {
             <main className="main-create">
                 <div className="register-note">
                     <input type="text" placeholder="Title..." value={title} onChange={event => setTitle(event.target.value)}/>
-                    <input type="text" placeholder="Short description..." value={about} onChange={event => setAbout(event.target.value)}/>
+                    <input type="text" placeholder="Short desc..." value={about} onChange={event => setAbout(event.target.value)}/>
                     <textarea className="textarea" value={text} onChange={event => setText(event.target.value)}></textarea>
                     <button onClick={() => onClickAddNote(title, about, text)} className="btnCreate">Create</button>
                 </div>
