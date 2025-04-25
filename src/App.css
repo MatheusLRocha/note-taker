@@ -11,6 +11,7 @@ body {
   background-image: url('./img/wp8629994.png');
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
 }
 
 #root {
@@ -44,7 +45,7 @@ main {
   display: flex;
 }
 
-.main-container { 
+.main-container {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
@@ -90,6 +91,8 @@ main {
   font-size: 0.75em;
   word-wrap: break-word;
   overflow-y: auto;
+
+  
 }
 
 .card::-webkit-scrollbar {
@@ -120,14 +123,14 @@ main {
   border-radius: 15px;
 
   & input {
-    width: 70%;
+    width: 90%;
     height: 40px;
     border-radius: 5px;
     padding: 4px;
   }
 
   & .textarea {
-    width: 70%;
+    width: 90%;
     height: 200px;
     resize: none;
     border-radius: 5px;
@@ -142,10 +145,16 @@ main {
     border-radius: 5px;
     color: white;
     font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   header h1 {
     font-size: 1.3em;
   }

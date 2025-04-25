@@ -1,6 +1,6 @@
-import { ArrowLeft } from "lucide-react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import CreateNoteHeader from "../components/CreateNoteHeader";
 
 function CreateNote() {
     const [title, setTitle] = useState("");
@@ -9,6 +9,11 @@ function CreateNote() {
     const navigate = useNavigate();
    
     function onClickAddNote(title, about, text) {
+
+        if (title.length == 0 || about.length == 0 || text.length == 0) {
+            alert("Você precisa preencher os campos...");
+            return;
+        }
         
         const storedNotes = JSON.parse(localStorage.getItem('notes')) || [];
 
@@ -32,17 +37,12 @@ function CreateNote() {
 
     return(
         <>
-            <header>
-                <h1>Create New Note</h1>
-                <Link to={'/'}>
-                    <ArrowLeft size={36} color="black"/>
-                </Link>
-            </header>
+            <CreateNoteHeader />
             <main className="main-create">
                 <div className="register-note">
-                    <input type="text" placeholder="Title..." value={title} onChange={event => setTitle(event.target.value)}/>
-                    <input type="text" placeholder="Short desc..." value={about} onChange={event => setAbout(event.target.value)}/>
-                    <textarea className="textarea" value={text} onChange={event => setText(event.target.value)}></textarea>
+                    <input type="text" placeholder="Title..."  onChange={event => setTitle(event.target.value)} value={title}/>
+                    <input type="text" placeholder="Short desc..."  onChange={event => setAbout(event.target.value)} value={about}/>
+                    <textarea className="textarea"  onChange={event => setText(event.target.value)} value={text}></textarea>
                     <button onClick={() => onClickAddNote(title, about, text)} className="btnCreate">Create</button>
                 </div>
             </main>

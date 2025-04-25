@@ -1,5 +1,5 @@
-import { ArrowLeft, Trash2 } from "lucide-react";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams, Link } from "react-router-dom";
+import { Trash2, PencilLine, ArrowLeft } from "lucide-react";
 
 function NotePage() {
     /* useSearchParams é uma Hook que faz a mesma coisa do URLSearchParams, pega os valores de parâmetro da URL e também podem adicionar ou mudar eles */
@@ -20,14 +20,24 @@ function NotePage() {
         navigate("/");
     }
 
+    const query = new URLSearchParams();
+    query.set('id', id);
+    query.set('title', title);
+    query.set('about', about);
+    query.set('text', text);
+
     return(
         <>
-            <header>
+           
+           <header>
                 <h1>Note Page</h1>
                 <div className="icons">
-                    <Trash2 className="icon" onClick={onClickDeleteNote} size={36}/>
-                    <Link to={'/'}>
-                        <ArrowLeft className="icon" size={36} color="black"/>
+                    <Trash2 className="icon" onClick={onClickDeleteNote} size={36} />
+                    <Link to={`/editnote?${query.toString()}`}>
+                        <PencilLine size={36} color="black"/>
+                    </Link>
+                    <Link to={"/"}>
+                        <ArrowLeft className="icon" size={36} color="black" />
                     </Link>
                 </div>
             </header>

@@ -1,7 +1,7 @@
-import { CirclePlus } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Card from "./components/Card";
 import { useEffect, useState } from "react";
+import HomeHeader from "./components/HomeHeader";
 
 
 function App() {
@@ -29,12 +29,7 @@ function App() {
 
   return (
     <>
-      <header>
-        <h1>Home</h1>
-        <Link to={'/newnote'}>
-          <CirclePlus className="icon" color="black" size={36}/>
-        </Link>
-      </header>
+      <HomeHeader />
       <main className="main-container">
         {
           notes.map(note => <Card key={note.id} onClick={() => onClickShowNote(note)} title={note.title}/>)
